@@ -33,7 +33,28 @@ public class NPolyline implements Polyline{
 	}
 	
 	public Point[] getPoints() {
-	
+		int nodes = 0;
+		Node n = point;
+		
+		//Check how many nodes there are
+		while(n != null) {
+			nodes++;
+			n = n.nextNode;
+		}
+		
+		//Create an array with the size of the amount of nodes
+		Point[] points = new Point[nodes];
+		
+		//Go back to the beginning of the nodes
+		n = point;
+		
+		//Add all the points from the nodes into the array
+		for(int i = 0; i < nodes; i++) {
+			points[i] = n.point;
+			n = n.nextNode;
+		}
+		
+		return points;
 	}
 	
 	public String getColor() {
