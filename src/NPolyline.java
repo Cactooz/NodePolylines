@@ -110,18 +110,20 @@ public class NPolyline implements Polyline{
 	public void addPoint(Point newPoint, String pointName) {
 		Node n = firstNode;
 		
-		while(!Objects.equals(firstNode.point.getName(), pointName) || !Objects.equals(n.nextNode.point.getName(), pointName)) {
-			n = n.nextNode;
+		while (n != null) {
+			while(!Objects.equals(firstNode.point.getName(), pointName) || !Objects.equals(n.nextNode.point.getName(), pointName)) {
+				n = n.nextNode;
+			}
+			
+			//Save the next node
+			Node tmpNextNode = n.nextNode;
+			
+			//Change the next node to the new node
+			n.nextNode = new Node(new Point(newPoint));
+			
+			//Set the newPoints next node to the old nextNode
+			n.nextNode.nextNode = tmpNextNode;
 		}
-		
-		//Save the next node
-		Node tmpNextNode = n.nextNode;
-		
-		//Change the next node to the new node
-		n.nextNode = new Node(new Point(newPoint));
-		
-		//Set the newPoints next node to the old nextNode
-		n.nextNode.nextNode = tmpNextNode;
 	}
 	
 	//Remove a point defined by its frame from the array
