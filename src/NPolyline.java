@@ -78,7 +78,19 @@ public class NPolyline implements Polyline{
 	
 	//Get the length of the polyline
 	public float length() {
-	
+		//Set the start length to 0
+		float length = 0;
+		
+		//Go back to the beginning of the nodes
+		Node n = firstNode;
+		
+		//Add the length between the point to the next nodes point to the total length
+		while(n != null) {
+			length += n.point.distance(n.nextNode.point);
+			n = n.nextNode;
+		}
+		
+		return length;
 	}
 	
 	//Add a point to the end of the array
