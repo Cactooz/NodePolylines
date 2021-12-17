@@ -128,7 +128,18 @@ public class NPolyline implements Polyline{
 	
 	//Remove a point defined by its frame from the array
 	public void remove(String pointName) {
-	
+		Node n = firstNode;
+		while (n != null) {
+			if(Objects.equals(firstNode.point.getName(), pointName)) {
+				n = n.nextNode;
+				return;
+			}
+			else if(Objects.equals(n.nextNode.point.getName(), pointName)) {
+				n.nextNode = n.nextNode.nextNode;
+				return;
+			}
+			n = n.nextNode;
+		}
 	}
 	
 	//Get the amount of nodes
