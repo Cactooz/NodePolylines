@@ -1,6 +1,7 @@
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class VPolyline {
+public class VPolyline implements Polyline {
 	private Point[] points;
 	private String color = "black";
 	private int width = 1;
@@ -183,5 +184,9 @@ public class VPolyline {
 				forward();
 			}
 		}
+	}
+	
+	public Iterator<Point> iterator() {
+		return Arrays.asList(points).iterator();
 	}
 }
