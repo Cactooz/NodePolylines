@@ -182,6 +182,6 @@ public class NPolyline implements Polyline{
 	}
 	
 	public Iterator<Point> iterator() {
-		return Arrays.asList().iterator();
+		return Arrays.asList(this.getPoints()).iterator();
 	}
 }
