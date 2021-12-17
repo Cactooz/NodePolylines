@@ -15,12 +15,12 @@ public class NPolyline implements Polyline{
 		}
 	}
 	
-	private Node point;
+	private Node firstNode;
 	private String color = "black";
 	private int width = 1;
 	
 	public NPolyline() {
-		point = null;
+		firstNode = null;
 	}
 	
 	public NPolyline(Point[] points) {
@@ -29,7 +29,7 @@ public class NPolyline implements Polyline{
 			Node node = new Node(new Point(points[0]));
 			
 			//Set the point to reference the node
-			point = node;
+			firstNode = node;
 			int pos = 1;
 			while(pos < points.length) {
 				//Set that the next node is another node with the next point from the array
@@ -43,7 +43,7 @@ public class NPolyline implements Polyline{
 	
 	public Point[] getPoints() {
 		int nodes = 0;
-		Node n = point;
+		Node n = firstNode;
 		
 		//Check how many nodes there are
 		while(n != null) {
@@ -55,7 +55,7 @@ public class NPolyline implements Polyline{
 		Point[] points = new Point[nodes];
 		
 		//Go back to the beginning of the nodes
-		n = point;
+		n = firstNode;
 		
 		//Add all the points from the nodes into the array
 		for(int i = 0; i < nodes; i++) {
