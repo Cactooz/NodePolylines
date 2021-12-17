@@ -96,14 +96,18 @@ public class NPolyline implements Polyline{
 	
 	//Add a point to the end of the array
 	public void addPoint(Point newPoint) {
-		Node n = firstNode;
-		
-		while(n != null) {
-			n = n.nextNode;
+		if(firstNode == null) {
+			firstNode = new Node(newPoint);
+		} else {
+			Node n = firstNode;
+			
+			while(n.nextNode != null) {
+				n = n.nextNode;
+			}
+			
+			//Add the new point as the next node for the last node
+			n.nextNode = new Node(new Point(newPoint));
 		}
-		
-		//Add the new point as the next node for the last node
-		n.nextNode = new Node(new Point(newPoint));
 	}
 	
 	//Add a point before a point specified by its name
