@@ -110,7 +110,7 @@ public class NPolyline implements Polyline{
 	public void addPoint(Point newPoint, String pointName) {
 		Node n = firstNode;
 		
-		while(!Objects.equals(n.point.getName(), pointName)) {
+		while(!Objects.equals(firstNode.point.getName(), pointName) || !Objects.equals(n.nextNode.point.getName(), pointName)) {
 			n = n.nextNode;
 		}
 		
