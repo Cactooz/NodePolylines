@@ -115,18 +115,19 @@ public class NPolyline implements Polyline{
 		Node n = firstNode;
 		
 		while (n != null) {
-			while(!Objects.equals(firstNode.point.getName(), pointName) || !Objects.equals(n.nextNode.point.getName(), pointName)) {
-				n = n.nextNode;
+			if(n.nextNode.point.getName().equals(pointName)) {
+				//Save the next node
+				Node tmpNextNode = n.nextNode;
+				
+				//Change the next node to the new node
+				n.nextNode = new Node(new Point(newPoint));
+				
+				//Set the newPoints next node to the old nextNode
+				n.nextNode.nextNode = tmpNextNode;
+				
+				return;
 			}
-			
-			//Save the next node
-			Node tmpNextNode = n.nextNode;
-			
-			//Change the next node to the new node
-			n.nextNode = new Node(new Point(newPoint));
-			
-			//Set the newPoints next node to the old nextNode
-			n.nextNode.nextNode = tmpNextNode;
+			n = n.nextNode;
 		}
 	}
 	
