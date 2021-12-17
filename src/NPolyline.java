@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class NPolyline implements Polyline{
 	public static class Node {
@@ -107,7 +108,20 @@ public class NPolyline implements Polyline{
 	
 	//Add a point before a point specified by its name
 	public void addPoint(Point newPoint, String pointName) {
-	
+		Node n = firstNode;
+		
+		while(!Objects.equals(n.point.getName(), pointName)) {
+			n = n.nextNode;
+		}
+		
+		//Save the next node
+		Node tmpNextNode = n.nextNode;
+		
+		//Change the next node to the new node
+		n.nextNode = new Node(new Point(newPoint));
+		
+		//Set the newPoints next node to the old nextNode
+		n.nextNode.nextNode = tmpNextNode;
 	}
 	
 	//Remove a point defined by its frame from the array
