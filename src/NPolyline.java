@@ -3,9 +3,12 @@ import java.util.Iterator;
 
 public class NPolyline implements Polyline{
 	public static class Node {
+		//The point in the node
 		public Point point;
+		//The reference to the next node
 		public Node nextNode;
 		
+		//Constructor for the node
 		public Node(Point point) {
 			this.point = point;
 			nextNode = null;
@@ -22,11 +25,17 @@ public class NPolyline implements Polyline{
 	
 	public NPolyline(Point[] points) {
 		if(points.length > 0) {
+			//Create a new node with the point from the first point in the array
 			Node node = new Node(new Point(points[0]));
+			
+			//Set the point to reference the node
 			point = node;
 			int pos = 1;
 			while(pos < points.length) {
+				//Set that the next node is another node with the next point from the array
 				node.nextNode = new Node(new Point(points[pos++]));
+				
+				//Go to the next node
 				node = node.nextNode;
 			}
 		}
