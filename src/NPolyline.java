@@ -164,6 +164,23 @@ public class NPolyline implements Polyline{
 		return amount;
 	}
 	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("{");
+		if (firstNode != null) {
+			sb.append("[");
+			Node n = firstNode;
+			while (n != null) {
+				sb.append(n.point);
+				n = n.nextNode;
+			}
+			sb.append("], ");
+		}
+		sb.append(this.color + ", " + this.width + "}");
+		return sb.toString();
+		
+	}
+	
 	public Iterator<Point> iterator() {
 		return Arrays.asList().iterator();
 	}
