@@ -42,23 +42,17 @@ public class NPolyline implements Polyline{
 	}
 	
 	public Point[] getPoints() {
-		int nodes = 0;
-		Node n = firstNode;
-		
-		//Check how many nodes there are
-		while(n != null) {
-			nodes++;
-			n = n.nextNode;
-		}
+		//Get the amount of nodes
+		int amount = nodeAmount(firstNode);
 		
 		//Create an array with the size of the amount of nodes
-		Point[] points = new Point[nodes];
+		Point[] points = new Point[amount];
 		
 		//Go back to the beginning of the nodes
-		n = firstNode;
+		Node n = firstNode;
 		
 		//Add all the points from the nodes into the array
-		for(int i = 0; i < nodes; i++) {
+		for(int i = 0; i < amount; i++) {
 			points[i] = n.point;
 			n = n.nextNode;
 		}
