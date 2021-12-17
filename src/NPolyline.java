@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Iterator;
+
 public class NPolyline implements Polyline{
 	public static class Node {
 		public Point point;
@@ -27,5 +30,49 @@ public class NPolyline implements Polyline{
 				node = node.nextNode;
 			}
 		}
+	}
+	
+	public Point[] getPoints() {
+	
+	}
+	
+	public String getColor() {
+		return color;
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	
+	public void setColor(String newColor) {
+		color = newColor;
+	}
+	
+	public void setWidth(int newWidth) {
+		width = newWidth;
+	}
+	
+	//Get the length of the polyline
+	public float length() {
+	
+	}
+	
+	//Add a point to the end of the array
+	public void addPoint(Point newPoint) {
+	
+	}
+	
+	//Add a point before a point specified by its name
+	public void addPoint(Point newPoint, String pointName) {
+	
+	}
+	
+	//Remove a point defined by its frame from the array
+	public void remove(String pointName) {
+	
+	}
+	
+	public Iterator<Point> iterator() {
+		return Arrays.asList().iterator();
 	}
 }
