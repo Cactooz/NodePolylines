@@ -8,4 +8,12 @@ public class NPolyline implements Polyline{
 			nextNode = null;
 		}
 	}
+	
+	private Node point;
+	private String color = "black";
+	private int width = 1;
+	
+	public NPolyline() {
+		point = null;
+	}
 }
