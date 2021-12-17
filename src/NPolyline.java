@@ -102,6 +102,20 @@ public class NPolyline implements Polyline{
 	
 	}
 	
+	//Get the amount of nodes
+	private int nodeAmount(Node nodeIn) {
+		int amount = 0;
+		Node n =  nodeIn;
+		
+		//Check how many nodes there are
+		while(n != null) {
+			amount++;
+			n = n.nextNode;
+		}
+		
+		return amount;
+	}
+	
 	public Iterator<Point> iterator() {
 		return Arrays.asList().iterator();
 	}
