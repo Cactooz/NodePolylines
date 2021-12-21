@@ -64,7 +64,7 @@ public class VPolyline implements Polyline {
 		
 		//Add the old points to the array
 		for(int i = 0; i < points.length; i++) {
-			tempPoints[i] = points[i];
+			tempPoints[i] = new Point(points[i]);
 		}
 		//Add the new point at the end of the array
 		tempPoints[tempPoints.length - 1] = newPoint;
