@@ -8,13 +8,13 @@ public class ChoosePolyline {
 		Polyline shortestPath = null;
 		
 		//Get the shortest yellow polyline
-		for(int i = 0; i < polylines.length; i++) {
-			if(polylines[i].getColor().equals("yellow")) {
+		for(Polyline polyline : polylines) {
+			if(polyline.getColor().equals("yellow")) {
 				if(shortestPath == null)
-					shortestPath = polylines[i];
+					shortestPath = polyline;
 				else {
-					if(polylines[i].length() < shortestPath.length()) {
-						shortestPath = polylines[i];
+					if(polyline.length() < shortestPath.length()) {
+						shortestPath = polyline;
 					}
 				}
 			}
