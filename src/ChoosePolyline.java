@@ -41,8 +41,8 @@ public class ChoosePolyline {
 		//Get a random amount of points
 		int totalPoints = 2 + random.nextInt(8);
 		boolean[] chosenNames = new boolean[26];
-		Point chosenPoint = null;
-		char chosenChar = 0;
+		Point chosenPoint;
+		char chosenChar;
 		
 		for(int i = 0; i < totalPoints; i++) {
 			//Create a new randomized point
