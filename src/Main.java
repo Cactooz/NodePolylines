@@ -25,6 +25,6 @@ public class Main {
 		for (int i = 0; i < 10; i++)
 			random[i] = ChoosePolyline.randomPolyline();
 		
-		System.out.println(Polylines.shortestYellow(random));
+		System.out.println(ChoosePolyline.shortestYellow(random));
 	}
 }
