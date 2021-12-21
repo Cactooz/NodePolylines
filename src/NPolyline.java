@@ -140,7 +140,7 @@ public class NPolyline implements Polyline{
 				firstNode = firstNode.nextNode;
 			} else {
 				Node n = firstNode;
-				while (n.nextNode != null && n.nextNode.point.getName().equals(pointName)) {
+				while (n.nextNode != null && !n.nextNode.point.getName().equals(pointName)) {
 					n = n.nextNode;
 				}
 				if(n.nextNode != null) {
