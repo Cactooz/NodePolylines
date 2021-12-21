@@ -54,7 +54,7 @@ public class NPolyline implements Polyline{
 		
 		//Add all the points from the nodes into the array
 		for(int i = 0; i < amount; i++) {
-			points[i] = n.point;
+			points[i] = new Point(n.point);
 			n = n.nextNode;
 		}
 		
