@@ -2,7 +2,26 @@ import java.util.Random;
 
 public class ChoosePolyline {
 	static final Random random = new Random();
+	
+	public static Polyline shortestYellow(Polyline[] polylines) {
+		//Polyline keeping track of the shortest path
+		Polyline shortestPath = null;
 		
+		//Get the shortest yellow polyline
+		for(int i = 0; i < polylines.length; i++) {
+			if(polylines[i].getColor().equals("yellow")) {
+				if(shortestPath == null)
+					shortestPath = polylines[i];
+				else {
+					if(polylines[i].length() < shortestPath.length()) {
+						shortestPath = polylines[i];
+					}
+				}
+			}
+		}
+		
+		return shortestPath;
+	}
 	//Create a random point
 	private static Point randomPoint() {
 		//Give the point a random letter
