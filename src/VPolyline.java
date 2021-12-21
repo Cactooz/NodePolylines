@@ -117,7 +117,7 @@ public class VPolyline implements Polyline {
 		
 		int removePos = -1;
 		for(int i = 0; i < points.length; i++) {
-			if(points[i].getName() == pointName) {
+			if(points[i].getName().equals(pointName)) {
 				removePos = i;
 				break;
 			}
